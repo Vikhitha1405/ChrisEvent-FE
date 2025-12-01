@@ -135,7 +135,7 @@ function Login({ onLoginSuccess }) {
                         color: COLORS.TEXT_LIGHT,
                         textAlign: 'left',
                         lineHeight: '1.1',
-                    }}>MerryMix!</h1>
+                    }}>Christmas Event!</h1>
                     <p style={{
                         fontSize: '1em',
                         lineHeight: '1.6em',
