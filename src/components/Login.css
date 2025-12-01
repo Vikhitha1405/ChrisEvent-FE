@@ -1,0 +1,160 @@
+/* Login.css */
+
+/* --- Keyframe Definitions (UNTOUCHED) --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Base/Desktop Layout (Non-Animated Styles moved from JS) --- */
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Use min-height for flexibility */
+    width: 100vw;
+}
+
+.login-card {
+    display: flex;
+    width: 850px; /* Desktop fixed width */
+    height: 550px; /* Desktop fixed height */
+    max-width: 90%; /* Safety check for slightly smaller screens */
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9); 
+    position: relative;
+}
+
+.left-panel, .right-panel {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Left panel remains left-aligned */
+    padding: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.right-panel {
+    align-items: center; /* Right panel remains center-aligned for form */
+}
+
+/* Diagonal overlay (The "cut" effect) */
+.diagonal-overlay {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 5%;
+    height: 100%;
+    transform: skewX(10deg);
+    transform-origin: top left;
+    z-index: 0; 
+}
+
+
+/* --- Animation Application and Sequencing (UNTOUCHED) --- */
+
+.card-container {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 0.7s ease-out forwards;
+    animation-delay: 0.5s; 
+}
+
+.slide-in-right-header {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 0.7s ease-out forwards;
+    animation-delay: 0.7s; 
+}
+
+.slide-in-right-input-1 {
+    animation: slideInRight 0.7s ease-out forwards;
+    animation-delay: 0.9s; 
+}
+
+.slide-in-right-input-2 {
+    animation: slideInRight 0.7s ease-out forwards;
+    animation-delay: 1.1s; 
+}
+
+.slide-in-right-button {
+    animation: slideInRight 0.7s ease-out forwards;
+    animation-delay: 1.3s; 
+}
+
+
+/* --- Hover Effect for Button (UNTOUCHED) --- */
+
+.login-button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+    background-color: #74c69d !important; 
+    transform: scale(1.03);
+}
+
+/* ========================================================= */
+/* 📱 MOBILE RESPONSIVENESS: Apply styles for small screens */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+    /* Stack the content vertically */
+    .login-card {
+        flex-direction: column;
+        width: 90%; /* Take up most of the screen width */
+        height: auto; /* Height adjusts based on content */
+        max-width: 400px; /* Keep it from getting too wide on tablets */
+    }
+
+    /* Make both panels take up full width */
+    .left-panel, .right-panel {
+        flex: none; /* Override flex: 1 */
+        width: 100%;
+        padding: 40px 30px; /* Reduced padding for mobile */
+        /* Center text and elements on mobile */
+        align-items: center;
+        text-align: center;
+    }
+    
+    /* Center the heading on the left panel on mobile */
+    .left-panel h1 {
+        text-align: center !important;
+    }
+
+    /* Hide the diagonal divider as it messes up the vertical stack */
+    .diagonal-overlay {
+        display: none;
+    }
+    
+    /* Remove initial animations for better performance on entry */
+    .slide-in-left, 
+    .slide-in-right-header, 
+    .slide-in-right-input-1, 
+    .slide-in-right-input-2,
+    .slide-in-right-button {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        /* Reset margins/paddings if needed */
+    }
+}

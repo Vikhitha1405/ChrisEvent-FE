@@ -1,0 +1,65 @@
+/* Dashboard.css */
+
+/* Style for the announcement text */
+.announcement-text {
+    font-style: italic; /* <-- Make the text italic */
+}
+
+/* Simple hover effect for the main submit button */
+.submit-button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #58d858ff !important; /* Slightly lighter green on hover */
+    transform: scale(1.01);
+}
+
+/* Hover effect for the logout button */
+.logout-button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: #ff6053 !important; /* Lighter red on hover */
+}
+
+/* Ensure full width on mobile */
+@media (max-width: 600px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: center !important; /* Center items when stacked */
+        text-align: center;
+        padding-top: 20px !important;
+    }
+    
+    /* Adjust logo and welcome text container for mobile */
+    .dashboard-header > div:first-child { /* Targets the div containing logo, h2, and p */
+        flex-direction: column; /* Stack logo and welcome text/announcement */
+        align-items: center; /* Center them */
+        margin-right: 0 !important; /* Remove any right margin */
+    }
+
+    .dashboard-header img {
+        margin-right: 0 !important; /* Remove right margin from logo */
+        margin-bottom: 10px; /* Add space below logo */
+    }
+
+    /* Center the welcome text and announcement */
+    .dashboard-header h2,
+    .announcement-text { /* Updated selector to use the class */
+        text-align: center;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .dashboard-header h2 {
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* Ensure form fits correctly */
+    .dashboard-container form {
+        width: 95%;
+        padding: 20px 15px !important;
+    }
+}
