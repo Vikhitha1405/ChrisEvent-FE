@@ -207,7 +207,7 @@ function Dashboard({ username, onLogout, hasSubmitted, onSubmissionSuccess }) {
 
         console.log("Data sent to server:", payload);
 
-        fetch("http://localhost:8081/submit_answers", {
+        fetch("https://chrisevent-be.onrender.com/submit_answers", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
